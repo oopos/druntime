@@ -25,7 +25,10 @@ DMD=dmd
 DOCDIR=doc
 IMPDIR=import
 
-MODEL=32
+# For now, 32 bit is the default model
+ifeq (,$(MODEL))
+	MODEL:=32
+endif
 
 DFLAGS=-m$(MODEL) -O -release -inline -nofloat -w -d -Isrc -Iimport -property
 UDFLAGS=-m$(MODEL) -O -release -nofloat -w -d -Isrc -Iimport -property
